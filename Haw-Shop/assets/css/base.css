@@ -25,11 +25,13 @@ html {
 nếu Roboto kg tồn tại thì CSS sẽ chọn font là loại sans-serif */
 /* các class giúp thực hiên responsive */
 
+/* Responsive */
 .grid {
     width: 1200px;
     max-width: 100%;
     margin: 0 auto;
 }
+
 .grid_full-width {
     width: 100%;
 }
@@ -37,6 +39,21 @@ nếu Roboto kg tồn tại thì CSS sẽ chọn font là loại sans-serif */
 .grid_row {
     display: flex;
     flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+/* test cho việc thiet lap responsive */
+.grid__column-2 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 16.6667%
+}
+
+.grid__column-10 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 83.3334%;
+
 }
 /* animation */
 @keyframes fadeIn {
@@ -58,6 +75,31 @@ nếu Roboto kg tồn tại thì CSS sẽ chọn font là loại sans-serif */
         transform: scale(var(--growth-to));
     }
 }
+
+@keyframes headerNotifyGrowth {
+    from {
+        opacity: 0;
+        transform: scale(0);
+
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+
+    }
+}
+
+/* @keyframes notGrowth {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: 0;
+    }
+} */
+
 
 /* Modal */
 .modal {
@@ -88,7 +130,7 @@ nếu Roboto kg tồn tại thì CSS sẽ chọn font là loại sans-serif */
 
 /* Button style */
 .btn {
-    min-width: 142px;
+    min-width: 124px;
     height: 34px;
     text-decoration: none;
     border: none;
