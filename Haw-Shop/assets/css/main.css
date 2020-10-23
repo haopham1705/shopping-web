@@ -48,7 +48,7 @@
 .header__navbar-user-menu{
     position: absolute;
     background-color: var(--white-color);
-    top: calc(100% + 4px);
+    top: calc(100% + 6px);
     right: 0;
     width: 160px;
     z-index: 1;
@@ -188,7 +188,9 @@
     padding: 8px;
     border-radius: 2px;
     display: none;
-    animation: fadeIn ease-in 0.25s;    
+    animation: fadeIn ease-in 0.25s;
+    z-index: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
         /* Phần cầu nối
         Nếu kg phần này thì khi rê trỏ xuống thì
@@ -244,7 +246,7 @@
     animation: headerNotifyGrowth ease-in 0.25s;
     will-change: opacity, transform;
     display: none;
-    z-index: 1;
+    z-index: 2;
 
 }
         /* dung transform-origin để di chuyên tâm khi thực hiện transform. 
@@ -521,7 +523,7 @@
     align-items: center;
 }
 
-    /* Cart */
+ /* Cart */
 .header__cart {
     width: 150px;
     text-align: center;
@@ -536,8 +538,7 @@
 }
 
 .header__cart-wrap:hover .header__cart-list {
-  display: block;  
-
+    display: block;
 }
 
 .header__cart-icon {
@@ -553,12 +554,13 @@
     background-color: var(--white-color);
     width: 400px;
     border-radius: 2px;
-    box-shadow: 0 1px 1.25rem 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3.25rem 0 rgba(0, 0, 0, 0.1);
     display: none;
     transform-origin: calc(100% - 32px) top;
-    animation: headerNotifyGrowth ease-in 0.25s;
-    will-change: opacity, transform;
+    animation: headerNotifyGrowth ease-in 0.25s; 
+    will-change: opacity, transform;    
     cursor: default;
+    z-index: 2;
 }
 
 .header__cart-list::after {
@@ -620,7 +622,12 @@
 .header__cart-list-item {
     padding: 0;
     list-style: none;
+    height: 35vh ;
+    overflow-y: auto;
 }
+
+    /* overflow-y:auto  -->che item theo chieu doc
+    35vh -->35 viewport height -> hien thị đúng 35% chieu cao màn hình */
 
 .header__cart-item {
     display: flex;
@@ -628,7 +635,7 @@
 }
 
 .header__cart-item:hover {
-    background-color: #ebe9e9;
+    background-color: rgba(0, 0, 0, 0.045);
 }
 
 .header__cart-img {
@@ -652,12 +659,24 @@
 }
 
 .header__cart-item-name {
-    font-size: 1.2rem;
-    font-weight: 530;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    max-height: 4rem;
+    overflow: hidden;
+    font-weight: 500;
     color: var(--text-color);
     margin: 0;
-    cursor: pointer;
+    flex: 1;
+    padding-right: 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-align: left;
 }
+        /* line-height: 2rem;
+            height: 4rem;
+            overflow: hidden; 
+                ẩn tên quá dài*/
 
 .header__cart-item-price {
     font-size: 1.2rem;
@@ -675,13 +694,11 @@
 .header__cart-item-qnt {
     font-size: 1.1rem;
     color: #757575;
-
 }
 
 .header__cart-item-body {
     display: flex;
     justify-content: space-between;
-
 }
 
 .header__cart-item-description {
@@ -748,7 +765,6 @@
     margin: 0 16px 0 8px;
     position: relative;
     top: 1px;
-
 }
 
 .header__search-btn {
@@ -782,6 +798,7 @@
     border-radius: 2px;
     animation: fadeIn ease-in 0.2s;
     display: none;
+    z-index: 1;
     /* overflow: hidden; */    
 }
         /* overflow để loại bỏ góc nhọn của border của item,
@@ -849,6 +866,7 @@
     box-shadow: 0 1px 5px rgb(184, 184, 184);
     display: none;
     overflow: hidden;
+    z-index: 2;
 }
     /* overflow hiden --> giúp thực hiện bo góc radius khi các item bị lòi ra ngoài */
 
@@ -888,3 +906,387 @@
     display: block;
 }
     /* display block --> cho tag a là block để click */
+
+/* App Container */
+.app__container {
+    background-color: #f5f5f5;
+}
+
+.app__content {
+    padding-top: 36px;
+
+}
+
+.category {
+    border-radius: 2px;
+    background-color: var(--white-color);
+}
+
+.category__heading {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    padding: 12px 16px;
+    margin-top: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* .category__heading-icon {
+    font-size: 1.2rem;
+    margin-right: 4px;
+    position: relative;
+    top: -1px;
+
+} */
+
+.category-list {
+    padding: 0 0 8px 0;
+    list-style: none;
+    margin-left: 9px;
+}
+
+.category-item {
+
+}
+
+.category-item--active .category-item__link {
+    color: var(--primary-color);
+}
+
+.category-item--active .category-item__link::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(calc(-50% - 1px));
+    border: 5px solid;
+    border-color: transparent transparent transparent var(--primary-color);
+}
+    /*Dùng top:50% và translateY(calc(-50% - 1px))
+    Để khi sau này tag <a> có tăng height thì arrow vẫn giữ đúng vị trí  */
+
+
+.category-item__link {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+    position: relative;
+    right: 0;
+    transition: right linear 0.1s;
+}
+
+.category-item__link:hover {
+    right: -3px;
+    color: var(--primary-color);
+}
+
+/* Home sort + filter */
+
+.home-filter {
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.04);
+    padding: 12px 22px;
+}
+
+.home-filter__label {
+    font-size: 1.4rem;
+    color: #555;
+    margin-right: 16px;   
+}
+
+.home-filter__btn {
+    min-width: 90px;
+    margin-right: 12px;
+}
+
+.home-filter__page {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.home-filter__page-num {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-right: 22px;
+}
+
+.home-filter__page-current {
+    color: var(--primary-color);
+
+}
+
+.home-filter__page-control {
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    width: 72px;
+    height: 36px;
+}
+
+.home-filter__page-btn {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-color);
+    text-decoration: none;
+}
+
+.home-filter__page-btn:hover {
+    background-color: #fcfcfc;
+}
+
+.home-filter__page-btn:first-child {
+    border-right: 1px solid #eee;
+    border-width: 80%;
+}
+
+.home-filter__page-icon {
+    font-size: 1.5rem;
+    margin: auto;
+    color: #555;
+}
+
+.home-filter__page-btn--disable {
+    background-color: #f9f9f9;
+}
+
+.home-filter__page-btn--disable .home-filter__page-icon {
+    color: #ccc;
+}
+
+/* home product item */
+.home-product {
+    margin-bottom: 10px;
+}
+
+.home-product-item {
+    position: relative;
+    margin-top: 10px;
+    text-decoration: none;
+    display: block;
+    background-color: var(--white-color);
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+    transition: transform ease-in 0.1s ;
+    will-change: transform;
+}
+    /* will-change --> khai bao thuoc tính có thay đổi, để tối ưu transititon
+    từ tag div sang tag a , ta cần thêm display: block */
+.home-product-item:hover {
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.05);
+    transform: translateY(-1.1px);
+}
+
+.home-product-item__img {
+    padding-top: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+    /* padding-top:100% làm cho image có dạng square,
+    sử dụng các property của background-image để điều chỉnh product's image
+    contain - image sẽ co lai để chứa dầy đủ nội dung trong element
+    */
+
+.home-product-item__name {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text-color);
+    line-height: 1.8rem;
+    height: 3.6rem;
+    margin: 10px 10px 6px;
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    /* text-overflow: ellipsis;
+    white-space: nowrap; */
+
+}
+        /*
+        Cách cắt bớt đoạn text quá dài và hiển thị '...' :
+            overflow:hidden
+            display: block phía trên display: -webkit-box để khi browser 
+            kg phải webkit thỉ sẽ dùng display:block
+            -webkit-box-orient: vertical - hướng của box --> box có đoạn text hướng từ trên xuống
+            -webkit-line-clamp: 2 --> dòng sẽ hiển thị "..." sau đoạn text
+        Ta có thể thêm các property để browser cũ hoạt động dc:
+                 text-overflow: ellipsis  --> tạo ra dấu "..." những chỉ trong 1 dòng
+                 white-space: nowap --> làm đoạn text không xuống dòng
+            */
+
+.home-product-item__price {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+    /* align-items: baseline --> canh cho 2 element con nằm cùng chân dòng với nhau mà kg phải canh giữa  */
+
+.home-product-item__price-old {
+    font-size: 1.4rem;
+    margin-left: 10px;
+    color: #666;
+    text-decoration: line-through;
+    
+}
+    
+
+.home-product-item__price-current {
+    font-size: 1.6rem;
+    color: #f63d30;
+    margin-left: 10px;
+
+}
+
+.home-product-item__action {
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 10px 0;
+}
+
+.home-product-item__like {
+    font-size: 1.3rem;
+
+}
+
+i.home-product-item__like-icon-fill {
+    color: #f63d30;
+    display: none;
+}
+    /* Do icon có lib css mặc định nên ta phải chèn tag i trước class icon-fill
+    them tag i để tăng độ ưu tiên. Hạn chế dùng !important  */
+
+    /* Khi tag có class like--liked thì sẽ ẩn icon-empty, và hiện icon-fill */
+.home-product-item__like--liked .home-product-item__like-icon-fill {
+    display: inline-block;
+}
+
+.home-product-item__like--liked .home-product-item__like-icon-empty {
+    display: none;
+}
+
+.home-product-item__rating {
+    font-size: 1rem;
+    transform: scale(0.8);
+    transform-origin: right;
+    color: #d5d5d5;
+    margin: -1px 0 0 auto ;
+}
+    /* icon kg thể thu quá nhỏ, nên ta phải dùng transform để scale nó lại
+     transform-origin: right để đổi vị trí tâm khi đã transform
+     margin-left: auto --> sẽ giúp element canh phải tự động, khi chạm đến 1 element bên phải sẽ tự dừng
+     */
+.home-product-item__star--gold {
+    color: var(--star-gold-color);
+}
+
+.home-product-item__sold {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-left: 6px;
+}
+
+.home-product-item__origin {
+    display: flex;
+    margin: 3px 10px 0;
+    color: #595959;
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.home-product-item__brand {
+
+}
+
+.home-product-item__origin-name {
+    margin-left: auto;
+}
+
+.home-product-item__favorite {
+    position: absolute;
+    top: 10px;
+    left: -4px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    background-color: currentColor;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    line-height: 1.6rem;
+    padding-right: 4px;
+    cursor: default;
+}
+
+.home-product-item__favorite i {
+    color: var(--white-color);
+    font-size: 0.9rem;
+    margin: 0 2px 0 5px;
+}
+
+.home-product-item__favorite span {
+    color: var(--white-color);
+}
+
+.home-product-item__favorite::before {
+    content: "";
+    border-top: 4px solid currentColor;
+    border-left: 4px solid transparent;
+    filter: brightness(60%);
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+}
+        /*
+        sử dụng thuộc tính currentColor, 
+        khi muốn màu element con ăn theo color của element cha
+        Ta cho 2 tag là icon và span màu white, để set màu cho element favorite màu cam với background: currentColor để ăn theo color: var(--primary-color)
+        Sau đó phần vạt màu ở favorite::before dùng currentColor để ăn theo màu của element cha là favorite
+        Dùng filter: brightness(60%) -->độ sáng còn 60% ==> làm tối màu
+        */
+
+.home-product-item__sale-off {
+    background-color: currentColor;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 36px;
+    color: rgba(255, 217, 64, 0.92);
+    text-align: center;
+    cursor: default;
+}
+
+.home-product-item__sale-off::before {
+    content: "";
+    position: absolute;
+    border-width: 0 20px 4px;
+    border-style: solid;
+    bottom: -4px;
+    left: 0;
+    border-color: transparent currentColor transparent currentColor;
+}
+    /* Tạo vạt cho phần giảm giá, tạo vạt phần dưới giống mẫu trên */
+.home-product-item__sale-off-percent {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    position: relative;
+    top: 1px;
+}
+
+.home-product-item__sale-off-label {
+    color: var(--white-color);
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    position: relative;
+    top: 2px;
+    font-weight: 600;
+}
