@@ -21,7 +21,7 @@
     min-height: 26px;
 }
 
-    /* user info */
+    /* user_login */
 .header__navbar-user {
     display: flex;
     justify-items: center;
@@ -109,7 +109,7 @@
 }
 
 
-    /* Show QR code khi hover */
+    /* Show QR code */
 .header__navbar-item--has-qr:hover .header__qr {
     display: block;
 
@@ -161,7 +161,7 @@
     text-decoration: none;
     color: var(--white-color);
 }
-        /* khoang cách 2 icon vs text */
+        /* icon - text*/
 .header__navbar-icon-link:nth-child(2) {
     margin-left: 2px;
 }
@@ -171,8 +171,7 @@
     margin: 0 4px;
 
 }
-        /* cursor:text (kg hiển thị pointer) | 
-        corlor :white sẽ ghi đè lên hover phía trên */
+
 .header__navbar-title--no-pointer {
     cursor: text;
     color: var(--white-color);
@@ -191,9 +190,8 @@
     z-index: 1;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
-        /* Phần cầu nối
-        Nếu kg phần này thì khi rê trỏ xuống thì
-        hết phần hover  để chọn đc element header QR */
+        
+    /* bridge-qr_code */
 .header__qr::before {
     background-color: rgba(0, 0, 0, 0.02);
     content: "";
@@ -215,8 +213,7 @@
     justify-content: space-between;
 
 }
-        /* select element con thứ nhất và thứ 2 của qr-link 
-        do 2 element con cùng tên và cùng cha nên ta dùng :nth-child() để select đúng element*/
+    /* select qr-link */
 .header__qr-link:nth-child(1) {
     margin-left: 11px;
 
@@ -248,10 +245,6 @@
     z-index: 2;
 
 }
-        /* dung transform-origin để di chuyên tâm khi thực hiện transform. 
-        (ta có hàm calc để khi có thay đổi width thì vị trí tâm sẽ kg bị lệch  */
-        /* will-change : khao báo propery nào sẽ thay đổi ở element này */
-
 
 .header__notify::before {
     content: "";
@@ -263,7 +256,7 @@
     top: -29px;
 
 }
-    /* creat bridge cho notify */
+    /* bridge-Notify */
 .header__notify::after {
     content: "";
     display: block;
@@ -360,8 +353,7 @@
     overflow: hidden;
 
 }
-        /*overflow: hidden --> giúp hiển bị border-radius đã bị element socials che di.
-        overflow sẽ thực hiện hành động với element lồi ra ngoài nó  */
+
 .auth-form__container {
     padding: 0 32px;
 }
@@ -401,7 +393,6 @@
     border: 1px solid var(--border-color);
     outline: none;
 }
-    /* outline -> làm đậm phần border input khi user focus or hover vào */
 
 .auth-form__input:focus {
     border-color: #888;
@@ -502,7 +493,7 @@
 .header__logo {
     width: 200px;
 }
-        /* giúp brower cũ không gạch dưới và có màu xanh với tag a */
+
 .header__logo-link {
     color: transparent;
     text-decoration: none;
@@ -576,8 +567,7 @@
     padding: 28px 0;
 }
 
-        /* Khi có class no-cart thì 2 phần img và msg sẽ hiện liên cùng với list-class no-cart */
-        /* margin-left và right để kg bị mất margin phần msg */
+    /* cart-empty */
 .header__cart-list--no-cart .header__cart-no-cart-img,
 .header__cart-list--no-cart .header__cart-list-no-cart-msg {
     margin-left: auto;
@@ -624,9 +614,6 @@
     overflow-y: auto;
 }
 
-    /* overflow-y:auto  -->che item theo chieu doc
-    35vh -->35 viewport height -> hien thị đúng 35% chieu cao màn hình */
-
 .header__cart-item {
     display: flex;
     align-items: center;
@@ -671,10 +658,6 @@
     -webkit-line-clamp: 2;
     text-align: left;
 }
-        /* line-height: 2rem;
-            height: 4rem;
-            overflow: hidden; 
-            ẩn tên quá dài*/
 
 .header__cart-item-price {
     font-size: 1.2rem;
@@ -799,9 +782,8 @@
     z-index: 1;
     /* overflow: hidden; */    
 }
-        /* overflow để loại bỏ góc nhọn của border của item,
-         nhưng sẽ loại bỏ phần cầu nối */
 
+    /* bridge_search-option */
 .header__search-option::before {
     content: "";
     display: block;
@@ -816,10 +798,7 @@
     background-color: var(--white-color);
     padding: 8px 8px;
 }
-    /* loại bỏ góc nhọn của border của item, 
-    nếu ta kg dùng overflow cho -option */
-    /* Việc sử dụng :first-child và :last-child để khi sau này thêm
-    item mới thì item giữa kg bị bo góc radius */
+ 
 /* .header__search-option-item:first-child {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
@@ -833,7 +812,7 @@
     background-color: #e4e4e4;
     cursor: pointer;
 }
-        /* overflow: hidden --> cac tag con chỉa ra ngoài sẽ bị ẩn */
+
 .header__search-option-item span {
     font-size: 1.4rem;
     color: var(--text-color);
@@ -853,6 +832,7 @@
 .header__search-input:focus ~ .header__search-history {
     display: block;
 }
+
 /* Search history */
 .header__search-history {
     position: absolute;
@@ -866,7 +846,6 @@
     overflow: hidden;
     z-index: 2;
 }
-    /* overflow hiden --> giúp thực hiện bo góc radius khi các item bị lòi ra ngoài */
 
 .header__search-history-heading {
     margin: 6px 12px;
@@ -903,7 +882,6 @@
     line-height: 38px;
     display: block;
 }
-    /* display block --> cho tag a là block để click */
 
 /* App Container */
 .app__container {
@@ -951,7 +929,6 @@
 .category-item:first-child::before {
     display: none;
 }
-    /* Bỏ border đầu tiên trên cùng của item  */
 
 .category-item::before {
     content: "";
@@ -974,9 +951,6 @@
     border: 5px solid;
     border-color: transparent transparent transparent var(--primary-color);
 }
-    /*Dùng top:50% và translateY(calc(-50% - 1px))
-    Để khi sau này tag <a> có tăng height thì arrow vẫn giữ đúng vị trí  */
-
 
 .category-item__link {
     font-size: 1.4rem;
@@ -991,7 +965,6 @@
 
 .category-item__link:hover {
     right: -2px;
-    /* background-color: rgba(224, 224, 224, 0.4); */
     color: var(--primary-color);
 }
 
@@ -1089,8 +1062,7 @@
     transition: transform ease-in 0.1s ;
     will-change: transform;
 }
-    /* will-change --> khai bao thuoc tính có thay đổi, để tối ưu transititon
-    từ tag div sang tag a , ta cần thêm display: block */
+    
 .home-product-item:hover {
     box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.05);
     transform: translateY(-1.1px);
@@ -1109,12 +1081,6 @@
     border-top-right-radius: 2px;
 
 }
-    /* padding-top:100% làm cho image có dạng square,
-    sử dụng các property của background-image để điều chỉnh product's image
-    contain - image sẽ co lai để chứa dầy đủ nội dung trong element
-    background-position: top center; --> image sẽ che khoảng trống phía trên
-        và nằm giữa
-    */
 
 .home-product-item__name {
     font-size: 1.4rem;
@@ -1132,24 +1098,12 @@
     white-space: nowrap; */
 
 }
-        /*
-        Cách cắt bớt đoạn text quá dài và hiển thị '...' :
-            overflow:hidden
-            display: block phía trên display: -webkit-box để khi browser 
-            kg phải webkit thỉ sẽ dùng display:block
-            -webkit-box-orient: vertical - hướng của box --> box có đoạn text hướng từ trên xuống
-            -webkit-line-clamp: 2 --> dòng sẽ hiển thị "..." sau đoạn text
-        Ta có thể thêm các property để browser cũ hoạt động dc:
-                 text-overflow: ellipsis  --> tạo ra dấu "..." những chỉ trong 1 dòng
-                 white-space: nowap --> làm đoạn text không xuống dòng
-            */
 
 .home-product-item__price {
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
 }
-    /* align-items: baseline --> canh cho 2 element con nằm cùng chân dòng với nhau mà kg phải canh giữa  */
 
 .home-product-item__price-old {
     font-size: 1.4rem;
@@ -1182,10 +1136,7 @@ i.home-product-item__like-icon-fill {
     color: #f63d30;
     display: none;
 }
-    /* Do icon có lib css mặc định nên ta phải chèn tag i trước class icon-fill
-    them tag i để tăng độ ưu tiên. Hạn chế dùng !important  */
 
-    /* Khi tag có class like--liked thì sẽ ẩn icon-empty, và hiện icon-fill */
 .home-product-item__like--liked .home-product-item__like-icon-fill {
     display: inline-block;
 }
@@ -1201,10 +1152,7 @@ i.home-product-item__like-icon-fill {
     color: #d5d5d5;
     margin: -1px 0 0 auto ;
 }
-    /* icon kg thể thu quá nhỏ, nên ta phải dùng transform để scale nó lại
-     transform-origin: right để đổi vị trí tâm khi đã transform
-     margin-left: auto --> sẽ giúp element canh phải tự động, khi chạm đến 1 element bên phải sẽ tự dừng
-     */
+   
 .home-product-item__star--gold {
     color: var(--star-gold-color);
 }
@@ -1265,13 +1213,6 @@ i.home-product-item__like-icon-fill {
     bottom: -4px;
     left: 0;
 }
-        /*
-        sử dụng thuộc tính currentColor, 
-        khi muốn màu element con ăn theo color của element cha
-        Ta cho 2 tag là icon và span màu white, để set màu cho element favorite màu cam với background: currentColor để ăn theo color: var(--primary-color)
-        Sau đó phần vạt màu ở favorite::before dùng currentColor để ăn theo màu của element cha là favorite
-        Dùng filter: brightness(60%) -->độ sáng còn 60% ==> làm tối màu
-        */
 
 .home-product-item__sale-off {
     background-color: currentColor;
@@ -1295,7 +1236,7 @@ i.home-product-item__like-icon-fill {
     left: 0;
     border-color: transparent currentColor transparent currentColor;
 }
-    /* Tạo vạt cho phần giảm giá, tạo vạt phần dưới giống mẫu trên */
+
 .home-product-item__sale-off-percent {
     color: var(--primary-color);
     font-weight: 600;
@@ -1313,4 +1254,3 @@ i.home-product-item__like-icon-fill {
     top: 2px;
     font-weight: 600;
 }
-

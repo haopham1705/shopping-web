@@ -22,9 +22,6 @@ html {
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
-/* sans-serif là chủng fonts, 
-nếu Roboto kg tồn tại thì CSS sẽ chọn font là loại sans-serif */
-/* các class giúp thực hiên responsive */
 
 /* Responsive */
 .grid {
@@ -43,7 +40,7 @@ nếu Roboto kg tồn tại thì CSS sẽ chọn font là loại sans-serif */
     margin-left: -5px;
     margin-right: -5px;
 }
-/* test cho việc thiet lap responsive */
+/* test responsive */
 .grid__column-2 {
     padding-left: 5px;
     padding-right: 5px;
@@ -102,6 +99,8 @@ nếu Roboto kg tồn tại thì CSS sẽ chọn font là loại sans-serif */
     left: 0;
     display: flex;
     animation: fadeIn linear 0.1s;
+    z-index: 3;
+    /* display: none; */
 }
 
 .modal__overlay {
@@ -251,7 +250,6 @@ nếu Roboto kg tồn tại thì CSS sẽ chọn font là loại sans-serif */
     text-align: center;
     border-radius: 2px;
 }
-        /* tag a cần thêm display: block thì mới áp dụng dc min-width cho element */
 
 .pagination-item__icon {
 }
@@ -259,39 +257,29 @@ nếu Roboto kg tồn tại thì CSS sẽ chọn font là loại sans-serif */
 /* Footer */
 .footer {
     border-top: 4px solid var(--primary-color);
-    padding-top: 15px;
+    padding-top: 12px;
 }
 
 .footer__heading {
-    /* color: var(--text-color);
-    font-size: 1.2rem;
-    font-weight: 550;
     text-transform: uppercase;
-    padding-left: 38px; */
-    margin-left: 40px;
+    color: var(--text-color);
 } 
 
 .footer__list {
-    /* list-style: none;
-    padding-left: 0; */
     list-style: none;
-    text-align: left;
+    padding-left: 0;
 }
 
 .footer-item {
-    /* margin-bottom: 10px; */
-
 }
 
 .footer-item__link {
-    /* text-decoration: none;
-    color: #737373;
+    text-decoration: none;
     font-size: 1.1rem;
+    color: #737373;
     padding: 2px 0;
     display: flex;
-    align-items: center; */
-    text-decoration: none;
-    color: var(--text-color);
+    align-items: center;
 }
 
 .footer-item__link:hover {
@@ -299,36 +287,47 @@ nếu Roboto kg tồn tại thì CSS sẽ chọn font là loại sans-serif */
 }
 
 .footer-item__icon {
-    /* font-size: 1.7rem;
-    margin-top: -5px; */
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    margin: -1px 8px 0 0;
 }
 
 .footer__download {
-    /* display: inline-block; */
-    margin-left: 35px;
+    display: flex;
 }
 
 .footer__qr {
-    /* height: 100px;
-    border: 1px solid rgb(219, 219, 219); */
-    height: 100px;
-    float: left;
+    width: 80px;
+    height: 80px;
+    /* object-fit: contain; */
+    border: 1px solid var(--border-color);
 }
 
 .footer__download-apps {
-    padding: 10px;
-    
+    flex: 1;
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .footer__download-app-img {
-    width: 60px;
-    display: flex;
-    align-items: flex-end;
+    height: 16px;
     margin: 0 10px 10px;
 }
 
+.footer__download-apps-link {
+    text-decoration: none;
+    color: transparent;
+}
+
+.footer__bottom {
+    background-color: #f5f5f5;
+    padding: 8px 0;
+    margin-top: 30px;
+}
 .footer__text {
+    margin: 0;
     text-align: center;
-    width: 100%;
+    font-size: 1.2rem;
+    color: #737373;
 }
