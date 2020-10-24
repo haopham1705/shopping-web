@@ -33,7 +33,7 @@ nếu Roboto kg tồn tại thì CSS sẽ chọn font là loại sans-serif */
     margin: 0 auto;
 }
 
-.grid_full-width {
+.grid__full-width {
     width: 100%;
 }
 
@@ -262,36 +262,36 @@ nếu Roboto kg tồn tại thì CSS sẽ chọn font là loại sans-serif */
     padding-top: 15px;
 }
 
-.footer__line-1 {
-    text-align: left;
-    padding-left: 0;
-}
-
 .footer__heading {
-    color: var(--text-color);
+    /* color: var(--text-color);
     font-size: 1.2rem;
     font-weight: 550;
     text-transform: uppercase;
-    padding-left: 38px;
+    padding-left: 38px; */
+    margin-left: 40px;
 } 
 
 .footer__list {
+    /* list-style: none;
+    padding-left: 0; */
     list-style: none;
-    padding-left: 0;
+    text-align: left;
 }
 
 .footer-item {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 
 }
 
 .footer-item__link {
-    text-decoration: none;
+    /* text-decoration: none;
     color: #737373;
     font-size: 1.1rem;
     padding: 2px 0;
     display: flex;
-    align-items: center;
+    align-items: center; */
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 .footer-item__link:hover {
@@ -299,26 +299,36 @@ nếu Roboto kg tồn tại thì CSS sẽ chọn font là loại sans-serif */
 }
 
 .footer-item__icon {
-    font-size: 1.7rem;
-    margin-top: -5px;
+    /* font-size: 1.7rem;
+    margin-top: -5px; */
+    font-size: 1.5rem;
 }
 
 .footer__download {
-    display: inline-block;
+    /* display: inline-block; */
+    margin-left: 35px;
 }
 
 .footer__qr {
+    /* height: 100px;
+    border: 1px solid rgb(219, 219, 219); */
     height: 100px;
-    border: 1px solid rgb(219, 219, 219);
+    float: left;
 }
 
 .footer__download-apps {
+    padding: 10px;
+    
 }
 
 .footer__download-app-img {
-    width: 50px;
+    width: 60px;
+    display: flex;
+    align-items: flex-end;
+    margin: 0 10px 10px;
 }
 
 .footer__text {
     text-align: center;
+    width: 100%;
 }
