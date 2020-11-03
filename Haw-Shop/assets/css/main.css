@@ -1,3 +1,6 @@
+.app {
+    overflow: hidden;
+}
 .header {
     height: var(--header-height);
     background-image: linear-gradient(0, #fe6433,#f53e2d);
@@ -1129,6 +1132,7 @@
 
 .home-product__pagination {
     margin: 48px 0 32px 0;
+    padding-left: 0;
 }
 
 .home-product-item__img {
