@@ -1,10 +1,7 @@
 
 /* Mobile & Tablet */
 @media (max-width: 1023px) {
-    :root {
-        --header-height: 68px;
-        --navbar-height: 0px;
-    }
+    
     .hide-on-mobile-tablet {
         display: none;
     }
@@ -34,10 +31,17 @@
     .app__content {
         padding-top: 5px;
     }
+    .mobile-category {
+        display: block;
+    }
 }
 
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
+    :root {
+        --header-height: 68px;
+        --navbar-height: 0px;
+    }
     .hide-on-tablet {
         display: none;
     }
@@ -52,11 +56,16 @@
 
 /* Mobile */
 @media (max-width:739px) {
+    :root {
+        --header-height: 54px;
+        --navbar-height: 0px;
+    }
     .hide-on-mobile {
         display: none;
     }
     .header-with-search {
         justify-content: space-between;
+        padding: 0 5px;
     }
 
     .header__logo,
@@ -76,6 +85,18 @@
         animation: mobileSearchSideIn linear 0.3s;
         display: none;
     }
+
+    @keyframes mobileSearchSideIn {
+        from {
+            opacity: 0;
+            top: calc(var(--header-height) / 2);
+        }
+        to {
+            opacity: 1;
+            top: var(--header-height);
+        }
+    }
+    
     .header__search-history {
         position: fixed;
         width: 100%;
@@ -94,15 +115,30 @@
     .app__content {
         margin: 0 4px;
     }
-
-    @keyframes mobileSearchSideIn {
-        from {
-            opacity: 0;
-            top: calc(var(--header-height) / 2);
-        }
-        to {
-            opacity: 1;
-            top: var(--header-height);
-        }
+    .header__mobile-search {
+        display: block;
     }
+    .header__logo-img {
+        width: 110px;
+    }
+    .footer__content {
+        padding: 0px 16px;
+    }
+    
+    .footer__heading {
+        text-align: center;
+    }
+    .footer__download,
+    .footer-item__link {
+        justify-content: center;
+    }
+    .footer__download-apps {
+        flex: unset;
+    }
+    .footer__download-apps-link {
+        padding: 5px 8px;
+        display: block;
+    }
+
+    
 }
